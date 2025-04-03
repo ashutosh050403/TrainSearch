@@ -1,6 +1,7 @@
 package com.vision.Train.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -16,10 +17,18 @@ public class Train {
 
     private String trainNumber;
 
-    @OneToMany(mappedBy = "train",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "train",cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<TrainSchedule> schedules;
 
     public Train() {
+    }
+
+    public Train(Long id, String trainName, String trainNumber, List<TrainSchedule> schedules) {
+        this.id = id;
+        this.trainName = trainName;
+        this.trainNumber = trainNumber;
+        this.schedules = schedules;
     }
 
     public Long getId() {

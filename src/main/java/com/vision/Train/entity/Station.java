@@ -19,6 +19,12 @@ public class Station {
     public Station() {
     }
 
+    public Station(Long id, String stationName, String stationCode) {
+        this.id = id;
+        this.stationName = stationName;
+        this.stationCode = stationCode;
+    }
+
     public Long getId() {
         return id;
     }

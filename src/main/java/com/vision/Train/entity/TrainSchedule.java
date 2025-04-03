@@ -1,5 +1,6 @@
 package com.vision.Train.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,6 +12,7 @@ public class TrainSchedule {
 
     @ManyToOne
     @JoinColumn(name = "train_id")
+    @JsonManagedReference
     private Train train;
 
     @ManyToOne
